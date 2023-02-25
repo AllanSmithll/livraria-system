@@ -1,7 +1,7 @@
-using Livraria.Api.Models;
+using APILivraria.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Livraria.Api.Data
+namespace APILivraria.Data
 {
     public class MainContext : DbContext
     {

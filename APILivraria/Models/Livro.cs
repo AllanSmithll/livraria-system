@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Livraria.Api.Models
+namespace APILivraria.Models
 {
     [PrimaryKey(nameof(Isbn))]
     public class Livro

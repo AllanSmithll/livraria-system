@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Livraria.Api.Models
+namespace APILivraria.Models
 {
     [PrimaryKey(nameof(IdAutor))]
     public class Autor
