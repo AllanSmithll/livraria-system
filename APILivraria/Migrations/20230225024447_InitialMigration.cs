@@ -37,7 +37,7 @@ namespace APILivraria.Migrations
                     Genero = table.Column<string>(type: "nvarchar(150)", nullable: true),
                     QuantPaginas = table.Column<int>(type: "int", nullable: false),
                     DataPublicacao = table.Column<string>(type: "nvarchar(8)", nullable: false),
-                    Edicao = table.Column<int>(type: "int", nullable: (true)),
+                    Edicao = table.Column<int>(type: "int", nullable: true),
                     NomeAutor = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     NomeEditora = table.Column<string>(type: "nvarchar(50)", nullable: false)
                 },
