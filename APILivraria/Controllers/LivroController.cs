@@ -44,11 +44,9 @@ namespace APILivraria.Controllers
             }
 
             dbLivro.Titulo = livro.Titulo;
+            dbLivro.Subtitulo = livro.Subtitulo;
             dbLivro.Resumo = livro.Resumo;
-            dbLivro.QuantPaginas = livro.QuantPaginas;
             dbLivro.Genero = livro.Genero;
-            dbLivro.NomeAutor = livro.NomeAutor;
-            dbLivro.NomeEditora = livro.NomeEditora;
 
             await _context.SaveChangesAsync();
 

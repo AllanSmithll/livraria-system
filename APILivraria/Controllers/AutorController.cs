@@ -25,7 +25,7 @@ namespace APILivraria.Controllers
 
         [HttpPost]
         [Route("/authors")]
-        public async Task<ActionResult> CreateLivro(Autor autor)
+        public async Task<ActionResult> CreateAutor(Autor autor)
         {
             await _contextAutor.Autores.AddAsync(autor);
 
@@ -33,5 +33,46 @@ namespace APILivraria.Controllers
 
             return Ok(autor);
         }
+
+        [HttpPut]
+        [Route("/authors")]
+        public async Task<ActionResult> UpdateAutor(Autor autor) {
+            var dbAutor = await _contextAutor.Autores.FindAsync(autor.IdAutor);
+
+            if (dbAutor == null) {
+                return NotFound();
+            }
+
+            dbAutor.Obras = autor.Obras;
+
+            await _contextAutor.SaveChangesAsync();
+
+            return Ok(new
+            {
+                data = autor,
+                sucess = true,
+                message = "Autor atualizado com sucesso!"
+            }
+            );
+        }
+
+        [HttpDelete]
+        [Route("/authors")]
+        public async Task<ActionResult> DeleteAutor(Guid IdAutor)
+        {
+            var dbAutor = await _contextAutor.Autores.FindAsync();
+
+            if (dbAutor == null)
+                return NotFound();
+            
+            _contextAutor.Autores.Remove(dbAutor);
+
+            await _contextAutor.SaveChangesAsync();
+
+            return Ok(new
+            {
+                success = true,
+                message = ""
+            });
     }
 }
