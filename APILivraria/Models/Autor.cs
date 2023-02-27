@@ -9,7 +9,7 @@ namespace APILivraria.Models
     [PrimaryKey(nameof(IdAutor))]
     public class Autor
     {
-        public Autor(int idAutor, string nome, int dataNascimento, string obras)
+        public Autor(int idAutor, string nome, string dataNascimento, string obras)
         {
             this.IdAutor = idAutor;
             this.Nome = nome;
@@ -21,7 +21,7 @@ namespace APILivraria.Models
 
         public string Nome { get; set; }
 
-        public int DataNascimento { get; set; }
+        public string DataNascimento { get; set; }
 
         public string Obras { get; set; }
     }

@@ -22,7 +22,7 @@ namespace APILivraria.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Livraria.Api.Models.Autor", b =>
+            modelBuilder.Entity("APILivraria.Models.Autor", b =>
                 {
                     b.Property<int>("IdAutor")
                         .ValueGeneratedOnAdd()
@@ -30,8 +30,9 @@ namespace APILivraria.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAutor"));
 
-                    b.Property<int>("DataNascimento")
-                        .HasColumnType("int");
+                    b.Property<string>("DataNascimento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -46,7 +47,7 @@ namespace APILivraria.Migrations
                     b.ToTable("Autores");
                 });
 
-            modelBuilder.Entity("Livraria.Api.Models.Livro", b =>
+            modelBuilder.Entity("APILivraria.Models.Livro", b =>
                 {
                     b.Property<Guid>("Isbn")
                         .ValueGeneratedOnAdd()

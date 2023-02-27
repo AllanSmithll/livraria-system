@@ -1,62 +1,79 @@
-<div class="principal-toolbar">
+<div class="toolbar">
     <mat-toolbar color="primary">
-        <a href="#">
-            <span>Livraria</span>
+        <a href="../../../app/app.component.html">
+            <h1>Livraria</h1>
         </a>
     </mat-toolbar>
 </div>
 
-<div class="table">
-    <table mat-table [dataSource]="livros" class="mat-elevation-z8">
+<!-- <div>
+    <button mat-fab color="primary" aria-label="Adicionar livro" (click)="openDialog(livro)">
+      <mat-icon>add</mat-icon>
+    </button>
+</div> -->
 
+<div class="table">
+  <table mat-table [dataSource]="livros" class="mat-elevation-z8">
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Título </th>
-      <td mat-cell *matCellDef="let livros"> {{livros.title}} </td>
+      <td mat-cell *matCellDef="let livro"> {{livro.title}} </td>
     </ng-container>
   
     <ng-container matColumnDef="subtitle">
       <th mat-header-cell *matHeaderCellDef> Subtítulo </th>
-      <td mat-cell *matCellDef="let livros"> {{livros.subtitle}} </td>
+      <td mat-cell *matCellDef="let livro"> {{livro.subtitle}} </td>
     </ng-container>
 
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ISBN </th>
-        <td mat-cell *matCellDef="let livros"> {{livros.id}} </td>
+        <td mat-cell *matCellDef="let livro"> {{livro.id}} </td>
       </ng-container>
   
     <ng-container matColumnDef="gender">
       <th mat-header-cell *matHeaderCellDef> Gênero(s) </th>
-      <td mat-cell *matCellDef="let livros"> {{livros.gender}} </td>
+      <td mat-cell *matCellDef="let livro"> {{livro.gender}} </td>
     </ng-container>
   
     <ng-container matColumnDef="pages">
       <th mat-header-cell *matHeaderCellDef> Páginas </th>
-      <td mat-cell *matCellDef="let livros"> {{livros.pages} </td>
+      <td mat-cell *matCellDef="let livro"> {{livro.pages}} </td>
     </ng-container>
 
     <ng-container matColumnDef="year">
       <th mat-header-cell *matHeaderCellDef> Ano </th>
-      <td mat-cell *matCellDef="let livros"> {{livros.year}} </td>
+      <td mat-cell *matCellDef="let livro"> {{livro.year}} </td>
     </ng-container>
 
     <ng-container matColumnDef="edition">
       <th mat-header-cell *matHeaderCellDef> Edição </th>
-      <td mat-cell *matCellDef="let livros"> {{livros.edition}} </td>
+      <td mat-cell *matCellDef="let livro"> {{livro.edition}} </td>
     </ng-container>
 
     <ng-container matColumnDef="author">
       <th mat-header-cell *matHeaderCellDef> Autor </th>
-      <td mat-cell *matCellDef="let livros"> {{livros.author}} </td>
+      <td mat-cell *matCellDef="let livro"> {{livro.nameAuthor}} </td>
     </ng-container>
 
     <ng-container matColumnDef="publisher">
       <th mat-header-cell *matHeaderCellDef> Editora </th>
-      <td mat-cell *matCellDef="let livros"> {{livros.publisher}} </td>
+      <td mat-cell *matCellDef="let livro"> {{livro.namePublisher}} </td>
     </ng-container>
 
     <ng-container matColumnDef="resume">
         <th mat-header-cell *matHeaderCellDef> Resumo </th>
-        <td mat-cell *matCellDef="let livros"> {{livros.resume} </td>
+        <td mat-cell *matCellDef="let livro"> {{livro.resume}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let livro">
+          <button mat-icon-button (click)="updateLivro(livro)" color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteLivro(livro.id)" color="primary">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
       </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
