@@ -1,4 +1,4 @@
-# livraria-minsait
+# livraria-system
 
 ## Introdução
 Foi criada uma aplicação baseada na prática CRUD (Create, Read, Update e Delete) de criação de sistemas. Uma livraria que tem como principais funções o cadastro, atualização e deletação de livros.
